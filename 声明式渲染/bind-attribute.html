@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bind attribute</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <!-- em单位：相对单位，1em等于font-size的大小，比如font-size为 24px，则 1em === 24px -->
+    <style>
+      .demo {
+        font-family: sans-serif;
+        border: 1px solid #eee;
+        border-radius: 2px;
+        padding: 20px 30px;
+        margin-top: 1em;
+        margin-bottom: 40px;
+        user-select: none;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="bind-attribute" class="demo">
+      <!-- title 属性：作为提示信息展示给用户，一般鼠标在元素上悬停一段时间显示-->
+      <span v-bind:title="message">
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+      </span>
+    </div>
+    <script>
+      const AttributeBinding = {
+        data() {
+          return {
+            message: 'You loaded this page on' + new Date().toLocaleString(),
+          };
+        },
+      };
+
+      Vue.createApp(AttributeBinding).mount('#bind-attribute');
+    </script>
+  </body>
+</html>
