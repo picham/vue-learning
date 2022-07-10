@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>computed-basics</title>
+    <script src="https://unpkg.com/vue@next"></script>
+    <style>
+      .demo {
+        font-family: sans-serif;
+        border: 1px solid #eee;
+        border-radius: 2px;
+        padding: 20px 30px;
+        margin-top: 1em;
+        margin-bottom: 40px;
+        user-select: none;
+        overflow-x: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="computed-basics" class="demo">
+      <p>Has publised books:</p>
+      <span>{{ publishedBooksMessage }}</span>
+    </div>
+
+    <script>
+      const computedBasicsApp = {
+        data() {
+          return {
+            author: {
+              name: 'John Doe',
+              books: [
+                'Vue 2 - Advanced Guide',
+                'Vue 3 - Basic Guide',
+                'Vue 4 - The Mystery',
+              ],
+            },
+          };
+        },
+
+        computed: {
+          publishedBooksMessage() {
+            return this.author.books.length > 0 ? 'Yes' : 'No';
+          },
+        },
+      };
+
+      Vue.createApp(computedBasicsApp).mount('#computed-basics');
+    </script>
+  </body>
+</html>
